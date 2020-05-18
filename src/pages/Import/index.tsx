@@ -15,7 +15,7 @@ import api from '../../services/api';
 interface FileProps {
   file: File;
   name: string;
-  readableSize: string;
+  size: string;
 }
 
 const Import: React.FC = () => {
@@ -35,7 +35,17 @@ const Import: React.FC = () => {
   }
 
   function submitFile(files: File[]): void {
-    // TODO
+    const newFiles = files.map(file => {
+      const fileObj: FileProps = {
+        file,
+        name: file.name,
+        size: filesize(file.size)
+      }
+
+      return fileObj;
+    })
+
+    setUploadedFiles([...uploadedFiles, ...newFiles]);
   }
 
   return (
