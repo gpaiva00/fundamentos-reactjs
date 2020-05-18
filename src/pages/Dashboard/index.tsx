@@ -10,6 +10,7 @@ import Header from '../../components/Header';
 
 import formatValue from '../../utils/formatValue';
 import formatDate from '../../utils/formatDate';
+import CategoryIcon from '../../components/CategoryIcon';
 
 import { Container, CardContainer, Card, TableContainer } from './styles';
 
@@ -97,7 +98,11 @@ const Dashboard: React.FC = () => {
                     {transaction.type === 'outcome' && '- '}
                     {formatValue(transaction.value)}
                   </td>
-                  <td>{transaction.category.title}</td>
+                  <td>
+                    <CategoryIcon title={transaction.category.title} />
+
+                    <span>{transaction.category.title}</span>
+                  </td>
                   <td>{formatDate(transaction.created_at)}</td>
                 </tr>
               ))}

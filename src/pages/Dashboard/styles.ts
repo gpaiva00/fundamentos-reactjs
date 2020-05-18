@@ -71,6 +71,10 @@ export const TableContainer = styled.section`
       font-weight: normal;
       color: #969cb3;
 
+      span {
+        margin-left: 10px;
+      }
+
       &.title {
         color: #363f5f;
       }
